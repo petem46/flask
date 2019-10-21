@@ -1,9 +1,18 @@
 from app import app
 import dash
+<<<<<<< HEAD
+=======
+import dash_table
+>>>>>>> fcat
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
+<<<<<<< HEAD
+=======
+import pandas as pd
+
+>>>>>>> fcat
 # external JavaScript files
 external_scripts = [
     # 'https://www.google-analytics.com/analytics.js',
@@ -29,7 +38,10 @@ external_scripts = [
         'crossorigin': 'anonymous'
     }
 ]
+<<<<<<< HEAD
 
+=======
+>>>>>>> fcat
 # external CSS stylesheets
 external_stylesheets = [
     # 'https://codepen.io/chriddyp/pen/bWLwgP.css',
@@ -38,22 +50,81 @@ external_stylesheets = [
         'rel': 'stylesheet',
         'integrity': 'sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T',
         'crossorigin': 'anonymous'
+<<<<<<< HEAD
     }
 ]
 
+=======
+    },
+    {
+        'href': 'http://flask.fcat.internal/static/css/table-wrapper.css',
+        'rel': 'stylesheet'
+    }
+
+]
+
+df = pd.read_csv('https://raw.githubusercontent.com/petem46/flask/master/890_ks4final.csv')
+
+df[' index'] = range(1, len(df) + 1)
+
+>>>>>>> fcat
 dashboard = dash.Dash(__name__,
             server=app, url_base_pathname='/dashapp/',
             external_scripts=external_scripts,
             external_stylesheets=external_stylesheets)
 
+<<<<<<< HEAD
 dashboard.layout = html.Div([
     html.H1('Hello From Dash In Flask in Docker through Nginx',className='bg-info text-center'),
+=======
+PAGE_SIZE = 10
+
+dashboard.layout = html.Div([
+    html.H1('Hello From Dash In Flask in IIS',className='bg-info text-center'),
+>>>>>>> fcat
     html.Div([
         html.Div('Dash: A web application framework for Python.'),
         html.Div(dcc.Input(id='input', value='Callback Text Demo', type='text')),
         html.Div(id='output'),
         html.Label(['', html.A('Home', href='/')])
     ],className="px-3 mx-5 mb-3 bg-white"),
+<<<<<<< HEAD
+=======
+    html.Div([
+        html.H1('NEW DIV - Data Table Holder'),
+        html.Div([
+            dash_table.DataTable(
+                data=df.to_dict('records'),
+                id='table-multicol-sorting',
+                columns=[
+                    {"name": i, "id": i} for i in sorted(df.columns)
+                ],
+                style_table={
+                    'height': '300px',
+                    'overflowY': 'scroll',
+                    'border': 'thin lightgrey solid'    
+                },
+                style_cell={
+                    'height': 'auto',
+                    # all three widths are needed
+                    'minWidth': '100px', 'width': '100px', 'maxWidth': '100px',
+                    'whiteSpace': 'normal'
+                },
+                style_data={
+                    'whiteSpace': 'normal',
+                    'height': 'auto',
+                },
+                page_current=0,
+                page_size=PAGE_SIZE,
+                page_action='custom',
+
+                sort_action='custom',
+                sort_mode='multi',
+                sort_by=[]
+            )
+        ])
+    ],className="px-3 mx-5 mb-3 bg-white vh-75"),
+>>>>>>> fcat
     #dashboard row 1
     html.Div([
         #graph col-8 width
@@ -66,7 +137,11 @@ dashboard.layout = html.Div([
                         {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
                     ],
                     'layout': {
+<<<<<<< HEAD
                         'title': 'Chart 1-1 col-8',
+=======
+                        'title': 'Chart 1-1 col-xl-8 col-12',
+>>>>>>> fcat
                         'legend': {
                             'orientation': 'h',
                             'xanchor': 'center',
@@ -76,8 +151,13 @@ dashboard.layout = html.Div([
                         },
                     }
                 }
+<<<<<<< HEAD
         )],className='col-8',id='graph_div1-1'),
         # graph col-4 width
+=======
+        )],className='col-xl-8 col-12',id='graph_div1-1'),
+        # graph col-xl-4 pb-lg-3 width
+>>>>>>> fcat
         html.Div([
             dcc.Graph(
                 id='example-graph1-2',
@@ -87,6 +167,7 @@ dashboard.layout = html.Div([
                         {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
                     ],
                     'layout': {
+<<<<<<< HEAD
                         'title': 'Chart 1-2 col-4'
                     }
                 }
@@ -95,6 +176,16 @@ dashboard.layout = html.Div([
     # dashboard row 2
     html.Div([
         #graph col-4 width
+=======
+                        'title': 'Chart 1-2 col-xl-4 col-12'
+                    }
+                }
+        )],className='col-xl-4 col-12',id='graph_div1-2')
+    ],className="row px-5 mb-3"),
+    # dashboard row 2
+    html.Div([
+        #graph col-xl-4 pb-lg-3 width
+>>>>>>> fcat
         html.Div([
             dcc.Graph(
                 id='example-graph2-1',
@@ -104,11 +195,19 @@ dashboard.layout = html.Div([
                         {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
                     ],
                     'layout': {
+<<<<<<< HEAD
                         'title': 'Chart 2-1 col-4'
                     }
                 }
         )],className='col-4',id='graph_div2-1'),
         # graph col-4 width
+=======
+                        'title': 'Chart 2-1 col-xl-4 pb-lg-3'
+                    }
+                }
+        )],className='col-xl-4 pb-lg-3',id='graph_div2-1'),
+        # graph col-xl-4 pb-lg-3 width
+>>>>>>> fcat
         html.Div([
             dcc.Graph(
                 id='example-graph2-2',
@@ -118,11 +217,19 @@ dashboard.layout = html.Div([
                         {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
                     ],
                     'layout': {
+<<<<<<< HEAD
                         'title': 'Chart 2-2 col-4'
                     }
                 }
         )],className='col-4',id='graph_div2-2'),
         # graph col-4 width
+=======
+                        'title': 'Chart 2-2 col-xl-4 pb-lg-3'
+                    }
+                }
+        )],className='col-xl-4 pb-lg-3',id='graph_div2-2'),
+        # graph col-xl-4 pb-lg-3 width
+>>>>>>> fcat
         html.Div([
             dcc.Graph(
                 id='example-graph2-3',
@@ -132,10 +239,17 @@ dashboard.layout = html.Div([
                         {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
                     ],
                     'layout': {
+<<<<<<< HEAD
                         'title': 'Chart 2-3 col-4'
                     }
                 }
         )],className='col-4',id='graph_div2-3')
+=======
+                        'title': 'Chart 2-3 col-xl-4 pb-lg-3'
+                    }
+                }
+        )],className='col-xl-4 pb-lg-3',id='graph_div2-3')
+>>>>>>> fcat
     ],className="row px-5 mb-3"),
 ],style={'background-color1':'teal'},className='pb-5 bg-secondary')
 
@@ -145,4 +259,32 @@ dashboard.layout = html.Div([
     [Input(component_id='input', component_property='value')]
 )
 def update_value(input_data):
+<<<<<<< HEAD
     return 'Input: "{}"'.format(input_data)
+=======
+    return 'Input: "{}"'.format(input_data)
+
+@dashboard.callback(
+    Output('table-multicol-sorting', "data"),
+    [Input('table-multicol-sorting', "page_current"),
+     Input('table-multicol-sorting', "page_size"),
+     Input('table-multicol-sorting', "sort_by")])
+def update_table(page_current, page_size, sort_by):
+    print(sort_by)
+    if len(sort_by):
+        dff = df.sort_values(
+            [col['column_id'] for col in sort_by],
+            ascending=[
+                col['direction'] == 'asc'
+                for col in sort_by
+            ],
+            inplace=False
+        )
+    else:
+        # No sort is applied
+        dff = df
+
+    return dff.iloc[
+        page_current*page_size:(page_current+ 1)*page_size
+    ].to_dict('records')
+>>>>>>> fcat
