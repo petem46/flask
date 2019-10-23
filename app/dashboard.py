@@ -42,6 +42,10 @@ external_stylesheets = [
         'crossorigin': 'anonymous'
     },
     {
+        'href': 'https://raw.githubusercontent.com/petem46/flask/master/app/static/css/table-wrapper.css',
+        'rel': 'stylesheet'
+    },
+    {
         'href': 'https://raw.githubusercontent.com/petem46/flask/master/app/static/css/style.css',
         'rel': 'stylesheet'
     }
