@@ -100,7 +100,7 @@ dashboard.layout = html.Div([
                 sort_by=[]
             )
         ])
-    ],className="px-3 mx-5 mb-3 bg-white vh-75"),
+    ],className="px-3 mx-5 mb-3 bg-white"),
     #dashboard row 1
     html.Div([
         #graph col-8 width

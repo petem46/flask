@@ -8,7 +8,7 @@ WORKDIR /app
 ADD . /app
 
 # Upgrade Pip
-RUN pip install --upgrade pip
+#RUN pip install --upgrade pip
 
 # Install uwsgi
 RUN pip install uwsgi
