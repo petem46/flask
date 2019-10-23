@@ -42,17 +42,17 @@ external_stylesheets = [
         'crossorigin': 'anonymous'
     },
     {
-        'href': 'https://raw.githubusercontent.com/petem46/flask/master/app/static/css/table-wrapper.css',
+        'href': '/static/css/table-wrapper.css',
         'rel': 'stylesheet'
     },
     {
-        'href': 'https://raw.githubusercontent.com/petem46/flask/master/app/static/css/style.css',
+        'href': 'https://github.com/petem46/flask/blob/home/app/static/css/style.css',
         'rel': 'stylesheet'
     }
 
 ]
 
-df = pd.read_csv('https://raw.githubusercontent.com/petem46/flask/master/app/static/csv/abs.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/petem46/flask/home/app/static/csv/abs.csv')
 
 df[' index'] = range(1, len(df) + 1)
 
