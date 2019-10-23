@@ -1,3 +1,8 @@
 body {
   background-color: #f1f1f1;
 }
+
+.dash-table-container .previous-next-container {
+  float: none !important;
+  padding: 10px 0px !important;
+}

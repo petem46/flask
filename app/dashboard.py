@@ -42,13 +42,13 @@ external_stylesheets = [
         'crossorigin': 'anonymous'
     },
     {
-        'href': 'http://flask.fcat.internal/static/css/table-wrapper.css',
+        'href': 'https://raw.githubusercontent.com/petem46/flask/master/app/static/css/style.css',
         'rel': 'stylesheet'
     }
 
 ]
 
-df = pd.read_csv('https://raw.githubusercontent.com/petem46/flask/master/890_ks4final.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/petem46/flask/master/app/static/csv/abs.csv')
 
 df[' index'] = range(1, len(df) + 1)
 
